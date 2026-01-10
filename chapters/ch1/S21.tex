@@ -1,0 +1,33 @@
+Search up what bounded and sharply bounded quantifiers are, if you don't know.
+\begin{definition}[Quantifier alternation classes]
+    Note the following.
+    \begin{itemize}
+        \item $\Delta_0^b =\Sigma_0^b = \Pi_0^b$ is the set of sharply bounded formulas, and are P. 
+        \item $\Sigma^b_{i+1}$ is the closure of $\Pi^b_{i}$ under $\wedge, \vee$, sharply bounded quantifiers, and bounded existential quantifiers.
+        \item $\Pi^b_{i}$ is the closure of $\Sigma^b_{i+1}$ under $\wedge, \vee$, sharply bounded quantifiers, and bounded universal quantifiers.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[$S^1_2$]
+    BASIC is a set of axioms defining desired properties of our $\wedge, \vee, \#$, etc. P-induction is a set of axioms acting on statements 
+    in a class of formulas. For $A\in \phi$, it says 
+    $$A(0) \wedge (\forall x)(A(\lfloor \frac{1}{2}x \rfloor)\to A(x)) \to (\forall x) A(x)$$
+    representing polynomially feasible induction. 
+
+    Then $S^i_2$ is the set of axioms BASIC + $\Sigma^b_i$-PIND. 
+\end{definition} 
+
+\begin{theorem}[Main Theorem for $S^1_2$]
+    The set of $\Sigma^b_1$ definable functions provable from $S^1_2$ is the set of problems in $P$.
+\end{theorem}
+\begin{proof}
+    This is proven using sequent calculus and witnessing lemma. It is summarized \href{https://proof2025.ugent.be/talks/summer_school/tutorial-RJalali_slides_pt2.pdf}{here}.
+    We will discuss such proofs soon.
+\end{proof}
+
+First, we return to a motivating (open) question:
+\begin{problem}
+    Is full bounded arithmetic finitely axiomatizable? In particular, is $S^1_2 = S_2$? (Where $S_2$ is defined as the union of all $S^i_2$'s.)
+\end{problem}
+
+Note $S^1_2$ is finitely axiomatized, the dWPHP axiom being just a single sentence, and BASIC being finite.

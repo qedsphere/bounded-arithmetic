@@ -1,0 +1,29 @@
+Cook's theory PV deals with $x=y$ statements. 
+
+\begin{definition}[FP]
+    $FP$ is the set of functions $f(x_1, \ldots, x_k): (\{0, 1\}^k\to \{0, 1\}^*)$ computable by poly-time algorithms. 
+\end{definition}
+
+An example is the function that returns whether the input is a prime number.
+
+Now a bunch of definitions:
+\begin{itemize}
+    \item $c(x)=\epsilon$
+    \item $\circ(x, y)$ concatenates $x, y$
+    \item $s_i(x) = x\circ i$ concatenates a single digit
+    \item $\# (x, y)$ repeats $x$ $|y|$ many times. 
+    \item $\TR(x)$ truncates $x$.
+    \item $\pi_i(x_1, \ldots, x_k)= x_i$ takes one coordinate of $x$. 
+\end{itemize}
+
+Cobham defines two rules for defining new functions from existing functions:
+\begin{itemize}
+    \item Composition: create $h(g_1(\vec{y}), \ldots, g_k(\vec{y}))$.
+    \item Limited Recursion: Base case $g(\vec x)$, recursive case with $h_i(\vec x, y, z)$ handling different cases of $i$ and 
+    defined as $f(\vec x, s_i(y)) = h_i(\vec x, y,f(\vec x, y)), i\in \{ 0, 1\}$. It limited by that $|f(\vec x, y)| \le |k (\vec x, y)|$ for 
+    some existing function $k(\vec x, y)$. 
+\end{itemize}
+
+The smallest class of functions that is closed under this actually happens to equal $\FP$. 
+
+

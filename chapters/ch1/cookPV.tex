@@ -1,0 +1,76 @@
+Note that $|f(\vec x, y)| \le |k(\vec x, y)|$ must be a statement still within the theory. How is this possible? We do not only construct 
+functions within poly time, but also their proofs. 
+
+To build $\PV$, we first require a different limit on length: $|h_i(\vec x, y, z)| \le |z\circ k_i(\vec x, y)|$ for $i\in \{0, 1\}$. This is at least 
+as strong as the Cobham thing, as we can recurse over index $i$ to build a single, adequate $k$ function. (Actually they're the same limit.)
+
+Now define $\PV$'s base case, or order $0$ $\PV$:
+\begin{itemize}
+    \item $\epsilon$ is an empty string.
+    \item We have $s_0(x)$, $s_1(x)$, $\circ(x, y)$, $\#(x, y)$, and $\TR(x, y)$
+    \item Additionally we define $\ITR(x, y)$ which removes the leftmost $|y|$ bits of $x$.
+    \item \textbf{Terms} of order $i$ are compositions of order $i$ functions and others. 
+    \item \textbf{Equations} of order $i$ equate terms of order $i$. "$s=t$".
+\end{itemize}
+
+Here are some axioms to accompany our order $0$ functions.
+
+\begin{itemize}
+    \item $x\circ \epsilon = x$, $x\circ s_i(y) = s_i(x\circ y)$
+    \item $x\# \epsilon = \epsilon$, bla, bla bla. More very intuitive axioms, two each, for $\TR$, $\ITR$. 
+\end{itemize}
+
+Finally we define how to introduce new functions:
+\begin{definition}[Function introduction rules]
+    
+\begin{itemize}
+    \item Composition: From order-$i-1$ term $t$ with variables $\vec x$, create order-$i$ function $f_t^{(0)}(\vec x)$. 
+    \item Recursion: Given order-$i-1$ proofs $\pi_i$ of the equation $\ITR(h_i(\vec x, y, z), z\circ k_i(\vec x, y)) = \epsilon$ mimicking our previous
+    limits on length, create $f_{\Pi:=(g, h_0, h_1, k_0, k_1, \pi_0, \pi_1)}^{(1)}$ and the axioms 
+    \begin{center}
+        $f^{(1)}_{\Pi}(\vec x, 0) = g(\vec x)$
+        \\ $f^{(1)}_{\Pi}(\vec x, s_i(y)) = h_i(\vec x, y, f^{(1)}_{\Pi})$
+    \end{center}
+\end{itemize}
+\end{definition}
+
+With their proofs:
+
+\begin{definition}[Proofs]
+    An order-$i$ proof is a sequence of order-$i$ equations $(e_1, \ldots, e_l)$ of the form $e_l= "s=t"$.
+
+To write proofs, we use logic:
+\begin{itemize}
+    \item We are given reflexivity, transitivity, and commutativity of equivalence.
+    \item If $s_i=t_i$ have all been introduced then $f(s_1, \ldots, s_n) = f(t_1, \ldots, t_n)$. 
+    \item If $s=t$ has been introduced then $s[x/v]=t[x/v]$ can be introduced. 
+    \item Definition axioms of order-$i$ functions may be freely introduced.
+    \item Finally, induction: If we have \newline
+    \begin{center}
+        $f_1 (\vec x, \epsilon) = g(\vec x), \; f_1(\vec x, s_i(y)) = h_0(\vec x, y, f_{1}(\vec x, y))$ \\
+        $f_1 (\vec x, \epsilon) = g(\vec x), \; f_1(\vec x, s_i(y)) = h_0(\vec x, y, f_{2}(\vec x, y))$
+    \end{center}
+    then $f_1(\vec x, y) = f_2(\vec x, y)$. 
+\end{itemize}
+\end{definition}
+
+\begin{remark}
+    $\PV$ characterizes both ``polynomially verifiable'' as well as ``feasible mathematics'', both informal proposals for desirable qualities, and $P$.
+\end{remark}
+
+\begin{definition}[$S^1_2(\PV)$]
+    Note that $S^1_2$ also captures $P$, but it does this using only a few basic function symbols. Therefore we conservatively enrich 
+    $S^1_2$ by adding the symbols of all "clocked polynomial-time functions" and the corresponding first-order ($PV_1$) axioms, to make our lives easier.
+\end{definition}
+
+\begin{remark}
+    If $\NP \subset \Ppoly$, then $PV_1$ and $S^1_2(PV)$ are the same. 
+\end{remark}
+
+Thus the main result of this section is that, since PV captures poly-time functions, we can rewrite:
+
+\begin{problem}
+    Does $S^1_2(\PV)$ prove $\dWPHP(\PV)$? I.e. does it prove all formulas $\dWPHP(f)$ for all function symbols $f$ in our language?
+\end{problem}   
+
+This problem is also open for $\PV_1$. 

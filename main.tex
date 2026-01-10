@@ -1,0 +1,37 @@
+\documentclass[12pt]{article}
+\usepackage{preamble}
+
+
+\title{Bounded Arithmetic}
+\author{qedsphere}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+\newcommand{\NEXP}{\text{NEXP}}
+\newcommand{\TR}{\text{TR}}
+\newcommand{\ITR}{\text{ITR}}
+\newcommand{\FP}{\text{FP}}
+\newcommand{\PV}{\text{PV}}
+\newcommand{\NP}{\text{NP}}
+\newcommand{\Ppoly}{\text{P}/\text{poly}}
+
+\newcommand{\dWPHP}{\text{dWPHP}}
+
+
+\section{Proof Complexity Generators}
+\input{chapters/ch1/dWPHP.tex}
+
+\subsection{Cobham's limited recursion}
+\input{chapters/ch1/cobham.tex}
+
+\subsection{Cook's Theory PV}
+\input{chapters/ch1/cookPV.tex}
+
+\subsection{Buss's $S^2_1$}
+\input{chapters/ch1/S21.tex}
+
+\end{document}
