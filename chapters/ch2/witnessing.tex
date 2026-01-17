@@ -1,1 +1,32 @@
-Now the short-awaited connection to computational complexity! 
+Now the short-awaited connection to computational complexity! Generally witnessing theorems say that some theory $T$ proving some $\forall a\exists y A(x, y)$
+with $A\in \Gamma$ implies the existence of a witness $f\in \mathcal{C}$. A witness satisfies
+\begin{center}$\forall x A(x, f(x))$\end{center}.
+
+\begin{theorem}
+    Assuming that $\BT$ is $\forall \Sigma^b_1$-conservative over $S^1_2$,
+    then any formula from the class $\dWPHP_1(\PV, \PV)$ can be witnessed by a p-time function.
+\end{theorem}
+\begin{proof}
+    This proof sketch is simple: choose polynomially random values of $y<2a$. It is exponentially unlikely that none of these satisfy $PV$, hence we 
+    have a randomized p-time algorithm. Then with universal derandomization (assuming it is constructable in $S^1_2$, which migh tbe unlikely) we
+    have just a p-time witnessing function.
+\end{proof}
+
+Similarly to the previous connection, let us try to construct a witnessing function for $\dWPHP(\PV)$. It is $\Sigma^b_2$, so we require theory $S^1_2$
+or $\PV_1$. The differnece in these choices is meaningful: $PV_1\ne S^1_2(\PV)$ unless $\NP\subset \Ppoly$. It turns out that if we choose theory $S^1_2$,
+we can consturct witnesses from $\FP^\NP[wit, O(\log n)]$. 
+
+There are more connections to witnessing theorems:
+
+\begin{theorem}[Interactive class witnessing theorem]
+    Suppose we are given formulas of the form $$\forall x \; \exists y (|y|\le |x|^c) \; \forall z(|z|\le |x|^d) \; A(x, y, z).$$ Then there exists a 
+    consturction of a witnessing function $f(x)$ such that $$\forall z (|z|\le n^d) \; A(x, f(x), z)$$. 
+\end{theorem}
+\begin{remark}
+    We care about this syntax of statements since upon appropriate choice of $A$ the formula is $\forall \Sigma^b_3$ or $\forall \Sigma^b_2$.
+\end{remark}
+\begin{remark}
+    The particular complexity class is, PCG claims, "S-T computations", which may be a dumbed down name for dumbed down readers, or maybe that's 
+    the official name, but it doesn't sound so official. It involves student $S$ and ultimate evolved Merlin (infinitely powerful) teacher $T$. 
+    $S$ sends candidates
+\end{remark}
