@@ -13,14 +13,14 @@ with $A\in \Gamma$ implies the existence of a witness $f\in \mathcal{C}$. A witn
 \end{proof}
 
 Similarly to the previous connection, let us try to construct a witnessing function for $\dWPHP(\PV)$. It is $\Sigma^b_2$, so we require theory $S^1_2$
-or $\PV_1$. The differnece in these choices is meaningful: $PV_1\ne S^1_2(\PV)$ unless $\NP\subset \Ppoly$. It turns out that if we choose theory $S^1_2$,
-we can consturct witnesses from $\FP^\NP[wit, O(\log n)]$. 
+or $\PV_1$. The difference in these choices is meaningful: $PV_1\ne S^1_2(\PV)$ unless $\NP\subset \Ppoly$. It turns out that if we choose theory $S^1_2$,
+we can construct witnesses from $\FP^\NP[wit, O(\log n)]$. 
 
 There are more connections to witnessing theorems:
 
 \begin{theorem}[Interactive class witnessing theorem]
     Suppose we are given formulas of the form $$\forall x \; \exists y (|y|\le |x|^c) \; \forall z(|z|\le |x|^d) \; A(x, y, z).$$ Then there exists a 
-    consturction of a witnessing function $f(x)$ such that $$\forall z (|z|\le n^d) \; A(x, f(x), z)$$. 
+    construction of a witnessing function $f(x)$ such that $$\forall z (|z|\le n^d) \; A(x, f(x), z)$$. 
 \end{theorem}
 \begin{remark}
     We care about this syntax of statements since upon appropriate choice of $A$ the formula is $\forall \Sigma^b_3$ or $\forall \Sigma^b_2$.
